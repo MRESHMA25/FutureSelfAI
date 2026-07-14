@@ -193,7 +193,12 @@ Future versions will continue expanding the agent with additional capabilities.
 - Exportable progress reports
 
 ---
+## 🌐 Live Demo
 
-FutureSelfAI continues to evolve as I explore AI engineering, full-stack development, and practical ways of combining large language models with structured software systems.
+**FutureSelfAI:** https://futureselfai.onrender.com
+
+> **Note:** This application is hosted on Render's free hosting tier. If the site has been inactive, the first request may take around a minute to start the server. If the page doesn't load immediately, please wait a moment or refresh the page once.
+
+If you'd like to see the complete user experience without the initial startup delay, I've also included a short demonstration video showcasing the application running locally.
 
 © 2026 Reshma Sri Murakonda
