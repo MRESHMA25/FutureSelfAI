@@ -1,0 +1,6 @@
+personal.env
+futureself.db
+__pycache__/
+*.py[cod]
+.venv/
+venv/
