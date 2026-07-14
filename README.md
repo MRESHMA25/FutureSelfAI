@@ -124,28 +124,76 @@ This project allowed me to explore:
 
 ---
 
-# 📈 Future Improvements
+# 🚀 Development Journey
+
+FutureSelfAI was developed iteratively, with each phase introducing new capabilities while improving both the user experience and the underlying AI architecture.
+
+### Phase 1 · AI Reflection Assistant
+
+The project began as a simple AI-powered reflection tool.
+
+**Completed**
+
+- Designed a responsive Flask web application
+- Integrated Google's Gemini API
+- Created a secure backend API architecture
+- Generated personalized AI reflections
+- Managed API keys using environment variables
+- Implemented frontend-backend communication using Fetch API
+
+---
+
+### Phase 2 · Guided User Experience
+
+After testing the first version, I redesigned the interface to reduce user effort and make the experience more intuitive.
+
+**Completed**
+
+- Replaced long text forms with a guided three-step workflow
+- Added goal-specific recommendations
+- Introduced interactive selection cards and chips
+- Generated structured AI responses instead of long paragraphs
+- Built a responsive dashboard with summary cards
+- Created an interactive seven-day action plan
+- Added loading states, validation, and improved user feedback
+
+---
+
+### Phase 3 · AI Agent
+
+The final phase transformed the application from a reflection tool into an AI agent with memory and adaptive recommendations.
+
+**Completed**
+
+- Added persistent reflection memory using SQLite
+- Stored previous reflections locally
+- Enabled the AI to reference recent user history
+- Added mindset scoring and progress tracking
+- Built reflection history with browser-based user identification
+- Added clear-history functionality
+- Created reusable backend services for future expansion
+
+---
+
+### Future Roadmap
+
+Future versions will continue expanding the agent with additional capabilities.
+
+**Planned**
 
 - User authentication
 - Cloud database support
-- Weekly progress reports
-- Visual analytics dashboard
-- Multi-goal tracking
+- Cross-device synchronization
+- Goal analytics and visual progress tracking
 - Calendar integration
-- Email reminders
 - Habit streaks
+- Reminder notifications
+- Multi-goal planning
 - Voice interaction
+- Exportable progress reports
 
 ---
 
-# 👩‍💻 About This Project
-
-FutureSelfAI was built as a learning project to explore how modern AI models can be combined with traditional full-stack development to create practical, user-focused applications.
-
-Rather than acting as a simple chatbot, the goal was to build an AI agent capable of remembering previous reflections, recognizing patterns, and generating structured, actionable guidance that evolves over time.
-
-This project reflects my growing interest in Artificial Intelligence, backend development, and building technology that is both technically interesting and genuinely useful.
-
----
+FutureSelfAI continues to evolve as I explore AI engineering, full-stack development, and practical ways of combining large language models with structured software systems.
 
 © 2026 Reshma Sri Murakonda
