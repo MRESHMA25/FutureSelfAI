@@ -98,16 +98,6 @@ Interactive Dashboard
 
 ---
 
-# 📸 Preview
-
-### Guided Reflection
-
-<p align="center">
-<img src="assets/screenshots/home.png" width="850">
-</p>
-
----
-
 # 🚀 Project Highlights
 
 This project allowed me to explore:
