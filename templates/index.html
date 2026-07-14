@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="FutureSelfAI is a guided AI planning agent that creates personalized, practical action plans."
+  />
+
+  <title>FutureSelfAI | Guided AI Planning Agent</title>
+
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="hero-badge">Guided AI Planning Agent</span>
+
+      <h1>FutureSelfAI</h1>
+
+      <p class="hero-subtitle">
+        Pick a goal, choose what is slowing you down,
+        and receive a simple plan you can actually follow.
+      </p>
+
+      <div class="feature-pills">
+        <span>Under 1-minute check-in</span>
+        <span>Personalized guidance</span>
+        <span>Agent memory</span>
+        <span>Interactive plan</span>
+      </div>
+    </section>
+
+    <section class="wizard-card">
+      <div class="wizard-progress">
+        <div class="progress-info">
+          <span id="stepLabel">Step 1 of 3</span>
+          <span id="stepName">Choose your goal</span>
+        </div>
+
+        <div class="progress-track">
+          <div id="wizardProgressBar"></div>
+        </div>
+      </div>
+
+      <form id="reflectionForm">
+        <!-- Step 1 -->
+
+        <section class="wizard-step active" data-step="1">
+          <div class="section-heading">
+            <p class="eyebrow">Your Direction</p>
+            <h2>What would you like to work on?</h2>
+            <p>
+              Choose one area. You can describe the exact goal
+              in one short sentence.
+            </p>
+          </div>
+
+          <div
+            class="choice-grid goal-grid"
+            id="goalChoices"
+          >
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Career"
+            >
+              <span class="choice-icon">💼</span>
+              <strong>Career</strong>
+              <small>Jobs, interviews, or professional growth</small>
+            </button>
+
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Learning"
+            >
+              <span class="choice-icon">📘</span>
+              <strong>Learning</strong>
+              <small>Study, coding, or gaining a new skill</small>
+            </button>
+
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Confidence"
+            >
+              <span class="choice-icon">🌱</span>
+              <strong>Confidence</strong>
+              <small>Communication or self-belief</small>
+            </button>
+
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Productivity"
+            >
+              <span class="choice-icon">✅</span>
+              <strong>Productivity</strong>
+              <small>Routine, focus, or consistency</small>
+            </button>
+
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Well-being"
+            >
+              <span class="choice-icon">☀️</span>
+              <strong>Well-being</strong>
+              <small>Balance, energy, or healthy routines</small>
+            </button>
+
+            <button
+              type="button"
+              class="choice-card"
+              data-value="Personal Goal"
+            >
+              <span class="choice-icon">✨</span>
+              <strong>Something Else</strong>
+              <small>A different personal goal</small>
+            </button>
+          </div>
+
+          <div class="short-input-group">
+            <label for="goalDetail">
+              Describe your goal in one sentence
+            </label>
+
+            <input
+              id="goalDetail"
+              type="text"
+              maxlength="300"
+              placeholder="Example: Become confident in technical interviews"
+              autocomplete="off"
+            />
+
+            <span id="goalCount">0 / 300</span>
+          </div>
+        </section>
+
+        <!-- Step 2 -->
+
+        <section class="wizard-step" data-step="2">
+          <div class="section-heading">
+            <p class="eyebrow">Current Challenge</p>
+            <h2>What is getting in your way?</h2>
+            <p>
+              Select all that apply. The options adapt to your goal.
+            </p>
+          </div>
+
+          <div
+            class="option-grid"
+            id="challengeChoices"
+          ></div>
+
+          <div
+            class="other-input hidden"
+            id="challengeOtherGroup"
+          >
+            <label for="challengeOther">
+              Add your own challenge
+            </label>
+
+            <input
+              id="challengeOther"
+              type="text"
+              maxlength="200"
+              placeholder="Write a short challenge"
+            />
+          </div>
+        </section>
+
+        <!-- Step 3 -->
+
+        <section class="wizard-step" data-step="3">
+          <div class="section-heading">
+            <p class="eyebrow">Future You</p>
+            <h2>How would you like to feel or behave?</h2>
+            <p>
+              Choose up to three qualities.
+            </p>
+          </div>
+
+          <div
+            class="option-grid"
+            id="futureTraitChoices"
+          >
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Confident"
+            >
+              Confident
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Consistent"
+            >
+              Consistent
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Focused"
+            >
+              Focused
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Calm"
+            >
+              Calm
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Prepared"
+            >
+              Prepared
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Disciplined"
+            >
+              Disciplined
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Motivated"
+            >
+              Motivated
+            </button>
+
+            <button
+              type="button"
+              class="option-chip"
+              data-value="Other"
+            >
+              Other
+            </button>
+          </div>
+
+          <div
+            class="other-input hidden"
+            id="futureOtherGroup"
+          >
+            <label for="futureOther">
+              Add another quality
+            </label>
+
+            <input
+              id="futureOther"
+              type="text"
+              maxlength="100"
+              placeholder="Example: More organized"
+            />
+          </div>
+        </section>
+
+        <div class="wizard-message hidden" id="wizardMessage"></div>
+
+        <div class="wizard-controls">
+          <button
+            type="button"
+            id="backBtn"
+            class="secondary-button hidden"
+          >
+            Back
+          </button>
+
+          <button
+            type="button"
+            id="nextBtn"
+            class="primary-button"
+          >
+            Continue
+          </button>
+
+          <button
+            type="submit"
+            id="generateBtn"
+            class="primary-button hidden"
+          >
+            Build My Plan
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section
+      class="loading-card hidden"
+      id="loadingSection"
+      aria-live="polite"
+    >
+      <div class="loading-spinner"></div>
+      <p id="loadingText">Understanding your goal...</p>
+    </section>
+
+    <section
+      class="error-card hidden"
+      id="errorSection"
+      role="alert"
+    >
+      <strong>Something went wrong</strong>
+      <p id="errorMessage"></p>
+    </section>
+
+    <section
+      class="result-section hidden"
+      id="resultSection"
+    >
+      <div class="result-header">
+        <div>
+          <p class="eyebrow">Your FutureSelf Plan</p>
+          <h2>Small steps. Clear direction.</h2>
+        </div>
+
+        <button
+          type="button"
+          id="copyBtn"
+          class="secondary-button"
+        >
+          Copy Plan
+        </button>
+      </div>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <span>Mindset Score</span>
+          <strong id="mindsetScore">--</strong>
+        </article>
+
+        <article class="summary-card">
+          <span>Main Focus</span>
+          <strong id="primaryFocus">--</strong>
+        </article>
+
+        <article class="summary-card">
+          <span>Progress</span>
+          <strong id="progressTrend">--</strong>
+          <small id="progressMessage"></small>
+        </article>
+
+        <article class="summary-card">
+          <span>Check-ins</span>
+          <strong id="totalReflections">0</strong>
+        </article>
+      </div>
+
+      <div class="insight-grid">
+        <article class="insight-card">
+          <span class="card-label">What may be happening</span>
+          <p id="currentPattern"></p>
+        </article>
+
+        <article class="insight-card">
+          <span class="card-label">Your opportunity</span>
+          <p id="futureOpportunity"></p>
+        </article>
+
+        <article class="insight-card future-message-card">
+          <span class="card-label">A note from future you</span>
+          <p id="futureMessage"></p>
+        </article>
+
+        <article class="insight-card">
+          <span class="card-label">Memory insight</span>
+          <p id="memoryInsight"></p>
+        </article>
+      </div>
+
+      <section class="quick-actions">
+        <div class="section-heading compact">
+          <p class="eyebrow">Start Here</p>
+          <h2>Your first three moves</h2>
+        </div>
+
+        <div id="actionSteps" class="action-step-grid"></div>
+      </section>
+
+      <section class="plan-section">
+        <div class="plan-heading">
+          <div>
+            <p class="eyebrow">Interactive Plan</p>
+            <h2>Your seven small steps</h2>
+            <p>
+              Mark each card complete as you go.
+              Progress is saved in this browser.
+            </p>
+          </div>
+
+          <div class="plan-progress-box">
+            <strong id="completedCount">0 of 7</strong>
+            <span>completed</span>
+          </div>
+        </div>
+
+        <div class="plan-progress-track">
+          <div id="planProgressBar"></div>
+        </div>
+
+        <div id="planCards" class="plan-card-grid"></div>
+      </section>
+    </section>
+
+    <section class="history-section">
+      <div class="history-header">
+        <div>
+          <p class="eyebrow">Agent Memory</p>
+          <h2>Previous check-ins</h2>
+          <p>
+            FutureSelfAI uses recent check-ins to adapt future plans.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="clearHistoryBtn"
+          class="danger-button"
+        >
+          Clear History
+        </button>
+      </div>
+
+      <div id="historyList" class="history-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      FutureSelfAI · Python · Flask · SQLite · Gemini
+    </p>
+  </footer>
+
+  <script
+    src="{{ url_for('static', filename='script.js') }}"
+  ></script>
+</body>
+</html>
